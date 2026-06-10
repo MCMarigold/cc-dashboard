@@ -1,0 +1,358 @@
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--am:#EF9F27;--am-lt:#FAEEDA;--am-dk:#854F0B;--gn:#639922;--gn-lt:#EAF3DE;--gn-dk:#27500A;--co:#D85A30;--co-lt:#FAECE7;--co-dk:#712B13;--tl:#1D9E75;--bl:#378ADD;--pu:#7F77DD;--gr:#888780;}
+body{font-family:Inter,system-ui,sans-serif;background:var(--color-background-tertiary,#F7F6F2);color:var(--color-text-primary);}
+.hdr{background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.logo{width:28px;height:28px;background:var(--am);border-radius:7px;display:flex;align-items:center;justify-content:center;}
+.logo svg{width:15px;height:15px;fill:white;}
+.htitle{font-size:14px;font-weight:500;margin-left:10px;}
+.badge{font-size:11px;font-weight:500;background:var(--am-lt);color:var(--am-dk);padding:3px 10px;border-radius:20px;}
+.wrap{max-width:900px;margin:0 auto;padding:1.25rem;}
+.tabs{display:flex;gap:5px;margin-bottom:1.25rem;overflow-x:auto;}
+.tab{padding:6px 16px;border-radius:20px;border:0.5px solid var(--color-border-secondary);font-size:13px;font-weight:500;cursor:pointer;background:transparent;color:var(--color-text-secondary);white-space:nowrap;transition:all .15s;font-family:inherit;}
+.tab.on{background:var(--am);border-color:var(--am);color:#fff;}
+.tab:hover:not(.on){background:var(--color-background-secondary);}
+.pnl{display:none;}.pnl.on{display:block;}
+.slbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.65rem;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg,12px);padding:1rem 1.25rem;margin-bottom:1rem;}
+.krow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:1.25rem;}
+.kc{background:var(--color-background-secondary);border-radius:var(--border-radius-md,8px);padding:.8rem .9rem;}
+.kc .kl{font-size:11px;color:var(--color-text-tertiary);font-weight:500;margin-bottom:3px;}
+.kc .kv{font-size:21px;font-weight:500;line-height:1;letter-spacing:-.02em;}
+.kc .ks{font-size:11px;margin-top:3px;color:var(--color-text-tertiary);}
+.chgrid{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:1.25rem;}
+.chcard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg,12px);padding:.875rem 1.1rem;}
+.chcard h3{font-size:13px;font-weight:500;margin-bottom:.65rem;}
+.br{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+.bl-{font-size:12px;color:var(--color-text-secondary);width:90px;flex-shrink:0;}
+.bt{flex:1;height:5px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;}
+.bf{height:100%;border-radius:3px;}
+.bv{font-size:12px;color:var(--color-text-secondary);width:52px;text-align:right;flex-shrink:0;}
+.chnote{font-size:11px;color:var(--color-text-tertiary);margin-top:6px;}
+.asel{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.25rem;}
+.abtn{padding:5px 13px;border-radius:20px;border:0.5px solid var(--color-border-secondary);font-size:13px;font-weight:500;cursor:pointer;background:transparent;color:var(--color-text-secondary);transition:all .15s;font-family:inherit;}
+.abtn.on{background:var(--am);border-color:var(--am);color:#fff;}
+.abtn:hover:not(.on){background:var(--color-background-secondary);}
+.apnl{display:none;}.apnl.on{display:block;}
+.scl{display:grid;grid-template-columns:175px 1fr;gap:1.25rem;align-items:start;margin-bottom:1.25rem;}
+.rnw{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.rnlbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);}
+.rng{font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:2px;}
+.kbd{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;}
+.ki{background:var(--color-background-secondary);border-radius:var(--border-radius-md,8px);padding:.65rem .75rem;}
+.ki .kil{font-size:11px;color:var(--color-text-tertiary);margin-bottom:3px;font-weight:500;}
+.ki .kiv{font-size:17px;font-weight:500;line-height:1;}
+.ki .kivs{font-size:10.5px;margin-top:2px;}
+.ki .kib{height:3px;border-radius:2px;margin-top:5px;background:var(--color-background-primary);overflow:hidden;}
+.ki .kibf{height:100%;border-radius:2px;}
+.kw{font-size:10px;color:var(--color-text-tertiary);}
+.wlrow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:.875rem;}
+.wlc{background:var(--color-background-secondary);border-radius:var(--border-radius-md,8px);padding:.65rem;text-align:center;}
+.wlc .wv{font-size:18px;font-weight:500;letter-spacing:-.01em;}
+.wlc .wl{font-size:11px;color:var(--color-text-tertiary);margin-top:2px;font-weight:500;}
+.nb{border-left:2.5px solid var(--am);padding:.55rem .7rem;margin-bottom:.75rem;background:var(--am-lt);border-radius:0 var(--border-radius-md,8px) var(--border-radius-md,8px) 0;font-size:12px;color:var(--am-dk);line-height:1.5;}
+.fb{border-left:2.5px solid var(--co);padding:.55rem .7rem;margin-bottom:.75rem;background:var(--co-lt);border-radius:0 var(--border-radius-md,8px) var(--border-radius-md,8px) 0;font-size:12px;color:var(--co-dk);line-height:1.5;}
+.dvd{height:0.5px;background:var(--color-border-tertiary);margin:.875rem 0;}
+.ttbl{width:100%;border-collapse:collapse;font-size:13px;}
+.ttbl th{font-size:11px;font-weight:600;color:var(--color-text-tertiary);text-align:left;padding:5px 7px;border-bottom:0.5px solid var(--color-border-secondary);letter-spacing:.03em;}
+.ttbl td{padding:7px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:middle;}
+.ttbl tr:last-child td{border-bottom:none;}
+.ttbl tr:hover td{background:var(--color-background-secondary);}
+.ttbl .tot td{background:var(--color-background-secondary);font-weight:500;}
+.spill{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:12px;font-weight:600;}
+.capgrid{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:.875rem;}
+.sfm{background:var(--color-background-secondary);border-radius:var(--border-radius-md,8px);padding:.8rem .95rem;font-size:12.5px;color:var(--color-text-secondary);line-height:1.85;margin-bottom:1rem;}
+.sfm strong{color:var(--color-text-primary);font-weight:500;}
+@media(max-width:540px){.kbd,.chgrid,.krow{grid-template-columns:1fr 1fr!important;}.scl{grid-template-columns:1fr!important;}}
+</style>
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Marigold client care team performance dashboard</h2>
+<div class="hdr">
+  <div style="display:flex;align-items:center">
+    <div class="logo"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+    <span class="htitle">Marigold Client Care</span>
+  </div>
+  <span class="badge">Baselines · Apr–Jun 2026</span>
+</div>
+<div class="wrap">
+  <nav class="tabs" role="tablist">
+    <button class="tab on" onclick="sw('team')" role="tab">Team view</button>
+    <button class="tab" onclick="sw('agents')" role="tab">Agent view</button>
+    <button class="tab" onclick="sw('cap')" role="tab">Capacity</button>
+    <button class="tab" onclick="sw('score')" role="tab">CC Score</button>
+  </nav>
+  <div id="pnl-team" class="pnl on">
+    <p class="slbl">Weekly snapshot — baselines</p>
+    <div class="krow">
+      <div class="kc"><div class="kl">Total contacts/wk</div><div class="kv">1,683</div><div class="ks">both brands</div></div>
+      <div class="kc"><div class="kl">Live answer rate</div><div class="kv">71.2%</div><div class="ks" style="color:var(--gr)">vs. baseline</div></div>
+      <div class="kc"><div class="kl">Email response</div><div class="kv">11 min</div><div class="ks">median, clean</div></div>
+      <div class="kc"><div class="kl">Avg booking ticket</div><div class="kv">$700</div><div class="ks" style="color:var(--gr)">vs. baseline</div></div>
+      <div class="kc"><div class="kl">Add-on attach</div><div class="kv">43.9%</div><div class="ks">manual bookings</div></div>
+    </div>
+    <div class="chgrid">
+      <div class="chcard"><h3>Calls — MHI inbound</h3>
+        <div class="br"><span class="bl-">Total/wk</span><div class="bt"><div class="bf" style="width:100%;background:#85B7EB"></div></div><span class="bv">274</span></div>
+        <div class="br"><span class="bl-">Answered</span><div class="bt"><div class="bf" style="width:71.2%;background:#378ADD"></div></div><span class="bv">71.2%</span></div>
+        <div class="br"><span class="bl-">Voicemail</span><div class="bt"><div class="bf" style="width:12.5%;background:#EF9F27"></div></div><span class="bv">12.5%</span></div>
+        <div class="br"><span class="bl-">Talk time/wk</span><div class="bt"><div class="bf" style="width:100%;background:#B5D4F4"></div></div><span class="bv">11.7 hrs</span></div>
+        <p class="chnote">Peak: Mon 9am · Gap: Mon 8am · Avg: 3.8 min/call</p>
+      </div>
+      <div class="chcard"><h3>SMS — both lines</h3>
+        <div class="br"><span class="bl-">MHI inbound</span><div class="bt"><div class="bf" style="width:100%;background:#1D9E75"></div></div><span class="bv">500/wk</span></div>
+        <div class="br"><span class="bl-">MHS inbound</span><div class="bt"><div class="bf" style="width:7%;background:#1D9E75"></div></div><span class="bv">37/wk</span></div>
+        <div class="br"><span class="bl-">Outbound manual</span><div class="bt"><div class="bf" style="width:48%;background:#639922"></div></div><span class="bv">~260/wk</span></div>
+        <p class="chnote">Peak: Mon · Monique handles 32% of inbound overnight</p>
+      </div>
+      <div class="chcard"><h3>Email</h3>
+        <div class="br"><span class="bl-">Threads/wk</span><div class="bt"><div class="bf" style="width:100%;background:#EF9F27"></div></div><span class="bv">57</span></div>
+        <div class="br"><span class="bl-">Within 15 min</span><div class="bt"><div class="bf" style="width:53.2%;background:#EF9F27"></div></div><span class="bv">53.2%</span></div>
+        <div class="br"><span class="bl-">Within 1 hr</span><div class="bt"><div class="bf" style="width:89.9%;background:#BA7517"></div></div><span class="bv">89.9%</span></div>
+        <p class="chnote">Outlier threshold: &gt;4 hrs during staffed hours</p>
+      </div>
+      <div class="chcard"><h3>Spectora — MHI</h3>
+        <div class="br"><span class="bl-">Manual/wk</span><div class="bt"><div class="bf" style="width:100%;background:#639922"></div></div><span class="bv">71</span></div>
+        <div class="br"><span class="bl-">Online/wk</span><div class="bt"><div class="bf" style="width:93%;background:#1D9E75"></div></div><span class="bv">66</span></div>
+        <div class="br"><span class="bl-">Online share</span><div class="bt"><div class="bf" style="width:48.4%;background:#7F77DD"></div></div><span class="bv">48.4%</span></div>
+        <p class="chnote">Avg ticket: $700 · Add-on target: ≥44%</p>
+      </div>
+    </div>
+    <div class="card">
+      <p class="slbl">Agent talk time — actual from queue log</p>
+      <table class="ttbl">
+        <thead><tr><th>Agent</th><th>Calls (60d)</th><th>Total talk</th><th>Avg/call</th><th>Est./wk</th></tr></thead>
+        <tbody id="talkBody"></tbody>
+      </table>
+      <p style="font-size:11px;color:var(--color-text-tertiary);font-style:italic;margin-top:.4rem">Period: Apr 10 – Jun 3, 2026 · Source: RingCentral queue log</p>
+    </div>
+    <div class="nb">MHS contributes ~6% of total weekly contacts. MHS calls route through the MHI queue and are identified by the destination line (763-244-1122).</div>
+  </div>
+  <div id="pnl-agents" class="pnl">
+    <p class="slbl">Select agent</p>
+    <div class="asel" id="agentBtns"></div>
+    <div id="agentPanels"></div>
+  </div>
+  <div id="pnl-cap" class="pnl">
+    <p class="slbl">Capacity utilization — adjusted</p>
+    <div class="krow" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kc"><div class="kl">Adjusted capacity</div><div class="kv">151 hrs</div><div class="ks">after all deductions</div></div>
+      <div class="kc"><div class="kl">Contact hrs/wk</div><div class="kv">53.6 hrs</div><div class="ks">35.5% of capacity</div></div>
+      <div class="kc"><div class="kl">Admin hrs/wk</div><div class="kv">27.0 hrs</div><div class="ks">17.9% of capacity</div></div>
+      <div class="kc"><div class="kl">Total tracked load</div><div class="kv">53.4%</div><div class="ks">floor estimate</div></div>
+    </div>
+    <div class="capgrid">
+      <div class="card"><p class="slbl">Capacity adjustments</p>
+        <table class="ttbl">
+          <tr><td>Base (5 × 40 hrs + Megan 15)</td><td style="text-align:right;font-weight:500">215 hrs</td></tr>
+          <tr><td>Monique: CC-active only (−30 hrs)</td><td style="text-align:right;font-weight:500">−30 hrs</td></tr>
+          <tr><td>Maggie: recurring meetings</td><td style="text-align:right;font-weight:500">−5.75 hrs</td></tr>
+          <tr><td>Team meetings (4 agents × 2 hrs)</td><td style="text-align:right;font-weight:500">−8 hrs</td></tr>
+          <tr><td>Breaks (4 agents × 5d × 1 hr)</td><td style="text-align:right;font-weight:500">−20 hrs</td></tr>
+          <tr><td style="font-weight:500">Adjusted capacity</td><td style="text-align:right;font-weight:500">~151 hrs</td></tr>
+        </table>
+      </div>
+      <div class="card"><p class="slbl">Admin hours breakdown</p>
+        <table class="ttbl">
+          <tr><td>Airtable tracking (1 hr/day × 7)</td><td style="text-align:right;font-weight:500">7.0 hrs</td></tr>
+          <tr><td>ShowingTime (access booking)</td><td style="text-align:right;font-weight:500">7.0 hrs</td></tr>
+          <tr><td>Sewer send-outs &amp; vendor coord.</td><td style="text-align:right;font-weight:500">5.0 hrs</td></tr>
+          <tr><td>Other (shift notes, payments, misc.)</td><td style="text-align:right;font-weight:500">8.0 hrs</td></tr>
+          <tr><td style="font-weight:500">Total admin</td><td style="text-align:right;font-weight:500">27.0 hrs</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <p class="slbl">Weekly hours by activity</p>
+      <div style="position:relative;width:100%;height:260px;margin-bottom:.5rem"><canvas id="capChart"></canvas></div>
+    </div>
+    <div class="nb">Total tracked load is a floor estimate. Untracked tasks (Slack, inspector coordination, client follow-ups) push actual utilization higher.</div>
+  </div>
+  <div id="pnl-score" class="pnl">
+    <div class="card">
+      <p class="slbl">How the CC Score is calculated</p>
+      <div class="sfm">
+        <strong>CC Score</strong> is a composite metric across five attributable KPIs. Scores are uncapped — exceeding a standard earns proportional bonus points. <strong>100 = meeting every standard simultaneously. Scores above 100 reflect overperformance.</strong><br><br>
+        <strong>35 pts — Call answer rate</strong> · standard ≥70% · earns (actual ÷ 70) × 35, uncapped<br>
+        <strong>20 pts — Miss streak rate</strong> · standard ≤2/wk · earns min((2 ÷ actual) × 20, 20); capped at 20; full 20 pts at 0 streaks<br>
+        <strong>20 pts — Add-on attach rate</strong> · standard ≥44% · earns (actual ÷ 44) × 20, uncapped<br>
+        <strong>15 pts — ACE scorecard</strong> · standard ≥8.0 · earns (actual ÷ 8.0) × 15, uncapped<br>
+        <strong>10 pts — Avg booking ticket</strong> · baseline $700 · earns (actual ÷ 700) × 10, uncapped<br><br>
+        <strong>Tiers:</strong> Exceptional = score ≥100 AND ≤1 below standard · Strong = score ≥90 AND &lt;3 below standard · Monitor = score 80–89 OR 3+ below standard · Needs Attention = score &lt;80
+      </div>
+      <div class="nb" style="margin-bottom:.75rem">ACE baselines pending recalculation — new questions went live June 2026. Scores use the prior baseline and are labeled accordingly.</div>
+      <p class="slbl">Team leaderboard</p>
+      <table class="ttbl">
+        <thead><tr><th>Agent</th><th>CC Score</th><th>Answer rate</th><th>Streak/wk</th><th>Add-on</th><th>Scorecard</th><th>Avg ticket</th></tr></thead>
+        <tbody id="lbBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const TALK=[
+  {name:'Deb Pulskamp', calls:509,totalHrs:'37.9 hrs',avgMin:'4.5 min',wkHrs:'4.4 hrs'},
+  {name:'Sara Bonk',    calls:292,totalHrs:'19.6 hrs',avgMin:'4.0 min',wkHrs:'2.3 hrs'},
+  {name:'Maggie Cox',   calls:350,totalHrs:'19.1 hrs',avgMin:'3.3 min',wkHrs:'2.2 hrs'},
+  {name:'Alicia Ortloff',calls:334,totalHrs:'18.5 hrs',avgMin:'3.3 min',wkHrs:'2.2 hrs'},
+  {name:'Megan Kouri',  calls:71, totalHrs:'3.4 hrs', avgMin:'2.9 min',wkHrs:'0.4 hrs'},
+  {name:'Monique Ocon', calls:29, totalHrs:'1.7 hrs', avgMin:'3.5 min',wkHrs:'0.2 hrs'},
+];
+const AGENTS=[
+  {name:'Deb Pulskamp',  init:'DP',color:'#378ADD',type:'Full-time',sched:'Mon–Fri 9am–5pm',
+   answer:75.0,streak:0.1,addOn:38.1,sc:8.6,ticket:714,bookings:171,smsOut:74,
+   flags:['⚠ Add-on attach 38.1% — below 44% standard. Highest volume agent; most revenue at stake.'],
+   notes:['Highest call and Spectora volume on the team.','Scorecard leads the team at 8.6.','Attach rate gap ≈ $5k incremental/60 days if raised to Sara\'s level.']},
+  {name:'Sara Bonk',     init:'SB',color:'#1D9E75',type:'Full-time',sched:'Mon/Fri 10am–8pm, Sat/Sun 9am–7pm',
+   answer:68.6,streak:0.7,addOn:52.1,sc:8.5,ticket:703,bookings:153,smsOut:112,
+   flags:['ℹ Answer rate baseline understated — DND routing fix resolved June 2026. True rate expected higher.'],
+   notes:['Highest add-on attach on the team at 52.1%.','Weekend coverage anchor.','Highest outbound SMS (~112/wk).']},
+  {name:'Maggie Cox',    init:'MC',color:'#BA7517',type:'Manager',sched:'Mon–Fri 7am–3pm',
+   answer:83.1,streak:0.0,addOn:44.4,sc:8.1,ticket:680,bookings:149,smsOut:13,
+   flags:[],
+   notes:['Answer rate 13 pts above standard.','Add-on attach right at standard (44.4%).','Outbound SMS ~13/wk manual — automated review texts excluded.']},
+  {name:'Alicia Ortloff',init:'AO',color:'#D85A30',type:'Full-time',sched:'Sun–Thu 12pm–8pm',
+   answer:48.3,streak:2.5,addOn:41.2,sc:7.3,ticket:665,bookings:101,smsOut:61,
+   flags:['⚠ Answer rate 21.7 pts below standard — follow-up in progress.','⚠ Miss streaks 2.5/wk — above ≤2/wk standard.','⚠ Add-on attach and scorecard both below standard.'],
+   notes:['All missed calls are confirmed real — zero ghost misses.','Miss streaks concentrate Mon–Tue 1–4pm.','Covers 3–8pm solo — primary team coverage risk window.']},
+  {name:'Megan Kouri',   init:'MK',color:'#7F77DD',type:'Part-time',sched:'Mon–Fri 8–11am',
+   answer:83.0,streak:0.0,addOn:62.5,sc:null,ticket:614,bookings:4,smsOut:null,
+   flags:['ℹ Sample too small (4 bookings) — ticket and add-on excluded from comparisons.'],
+   notes:['Part-time 8–11am — lower attributed volume expected.','Strong answer rate for her coverage window.']},
+  {name:'Monique Ocon',  init:'MO',color:'#0F6E56',type:'Full-time (overnight)',sched:'Sun–Thu 7pm–3am',
+   answer:96.9,streak:0.0,addOn:39.3,sc:7.3,ticket:596,bookings:29,smsOut:null,
+   flags:['ℹ Monitor tier reflects overnight service mix, not performance gaps. Add-on, scorecard, and ticket are all lower due to overnight call types — not a coaching concern.'],
+   notes:['Near-perfect answer rate — overnight calls are low volume, high intent.','Handles ~32% of all inbound SMS (~171/wk).','Lower ticket and scorecard reflect service mix, not performance.']},
+];
+function ccScore(a){
+  if(a.name==='Megan Kouri')return null;
+  const ap=(a.answer/70)*35;
+  const bp=Math.min(a.streak===0?20:(2.0/a.streak)*20,20);
+  const cp=a.sc!=null?(a.sc/8.0)*15:13.7;
+  const ep=(a.addOn/44)*20;
+  const dp=(a.ticket/700)*10;
+  return Math.round((ap+bp+cp+ep+dp)*10)/10;
+}
+function failing(a){
+  let f=0;
+  if(a.answer<70)f++;
+  if(a.streak>2)f++;
+  if(a.addOn<44)f++;
+  if(a.sc!==null&&a.sc<8.0)f++;
+  if(a.ticket<700)f++;
+  return f;
+}
+function gs(a){
+  const s=ccScore(a);
+  if(s===null)return{bg:'#F1EFE8',tx:'#888780',lbl:'Insufficient data'};
+  const f=failing(a);
+  if(s<80)return{bg:'#FAECE7',tx:'#993C1D',lbl:'Needs Attention'};
+  if(f>=3)return{bg:'#E6F1FB',tx:'#185FA5',lbl:'Monitor'};
+  if(s>=80&&s<90)return{bg:'#E6F1FB',tx:'#185FA5',lbl:'Monitor'};
+  if(s>=100&&f<=1)return{bg:'#D4EDBB',tx:'#27500A',lbl:'Exceptional'};
+  if(s>=90&&f<3)return{bg:'#EAF3DE',tx:'#3B6D11',lbl:'Strong'};
+  return{bg:'#E6F1FB',tx:'#185FA5',lbl:'Monitor'};
+}
+function kpiBar(v,std,color){return`<div class="kib"><div class="kibf" style="width:${Math.min(v/std*100,100).toFixed(1)}%;background:${color}"></div></div>`;}
+function drawRing(id,score,color){
+  const c=document.getElementById(id);if(!c)return;
+  const ctx=c.getContext('2d'),w=c.width,h=c.height,cx=w/2,cy=h/2,r=Math.min(w,h)/2-8;
+  ctx.clearRect(0,0,w,h);
+  const dark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+  ctx.strokeStyle=dark?'rgba(255,255,255,.1)':'#EDEDEB';ctx.lineWidth=10;ctx.lineCap='round';
+  ctx.beginPath();ctx.arc(cx,cy,r,-Math.PI/2,Math.PI*1.5);ctx.stroke();
+  if(score!==null){ctx.strokeStyle=color;ctx.beginPath();ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.min(score/100,1)*Math.PI*2);ctx.stroke();}
+  ctx.fillStyle=dark?'#F0EEE8':'#2C2C2A';ctx.font='500 22px Inter,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(score!==null?score:'—',cx,cy-4);
+  ctx.font='400 10px Inter,system-ui,sans-serif';ctx.fillStyle=dark?'rgba(255,255,255,.45)':'#888780';
+  ctx.fillText(score!==null&&score>100?'exceptional':'/100',cx,cy+14);
+}
+const tb=document.getElementById('talkBody');
+TALK.forEach(t=>{
+  const a=AGENTS.find(x=>x.name===t.name);
+  const dot=a?`<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${a.color};margin-right:7px;flex-shrink:0"></span>`:'';
+  tb.innerHTML+=`<tr><td><div style="display:flex;align-items:center">${dot}${t.name}</div></td><td>${t.calls}</td><td>${t.totalHrs}</td><td>${t.avgMin}</td><td>${t.wkHrs}</td></tr>`;
+});
+tb.innerHTML+=`<tr class="tot"><td>Team total</td><td>1,585</td><td>100.3 hrs</td><td>3.8 min avg</td><td>11.7 hrs</td></tr>`;
+const bEl=document.getElementById('agentBtns'),pEl=document.getElementById('agentPanels');
+AGENTS.forEach((a,i)=>{
+  const btn=document.createElement('button');
+  btn.className='abtn'+(i===0?' on':'');btn.textContent=a.name.split(' ')[0];
+  btn.onclick=()=>selAgent(i);bEl.appendChild(btn);
+  const s=ccScore(a),ss=gs(a);
+  const t=TALK.find(x=>x.name===a.name)||{};
+  const aMet=a.answer>=70,bMet=a.streak<=2,cMet=a.addOn>=44,dMet=a.sc!=null?a.sc>=8.0:null,eMet=a.ticket>=700;
+  const fH=a.flags.map(f=>`<div class="${f.startsWith('⚠')?'fb':'nb'}">${f}</div>`).join('');
+  const nH=a.notes.map(n=>`<li style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">${n}</li>`).join('');
+  const p=document.createElement('div');p.className='apnl'+(i===0?' on':'');p.id='ap-'+i;
+  p.innerHTML=`<div class="card">
+    <div style="display:flex;align-items:center;gap:11px;margin-bottom:1rem">
+      <div style="width:38px;height:38px;border-radius:50%;background:${a.color}22;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:13px;color:${a.color}">${a.init}</div>
+      <div><div style="font-size:14px;font-weight:500">${a.name}</div><div style="font-size:12px;color:var(--color-text-secondary)">${a.type} · ${a.sched}</div></div>
+    </div>
+    <div class="scl">
+      <div class="rnw">
+        <span class="rnlbl">CC Score</span>
+        <canvas id="ring-${i}" width="130" height="130"></canvas>
+        <span class="rng" style="background:${ss.bg};color:${ss.tx}">${ss.lbl}</span>
+      </div>
+      <div class="kbd">
+        <div class="ki"><div class="kil">Call answer rate <span class="kw">(35 pts)</span></div><div class="kiv" style="color:${aMet?'#639922':'#D85A30'}">${a.answer}%</div><div class="kivs" style="color:${aMet?'#639922':'#D85A30'}">${aMet?'✓ meets':'✗ below'} ≥70%</div>${kpiBar(a.answer,70,a.color)}</div>
+        <div class="ki"><div class="kil">Miss streak rate <span class="kw">(20 pts)</span></div><div class="kiv" style="color:${bMet?'#639922':'#D85A30'}">${a.streak}/wk</div><div class="kivs" style="color:${bMet?'#639922':'#D85A30'}">${bMet?'✓ meets':'✗ above'} ≤2/wk</div>${kpiBar(Math.max(2-a.streak,0),2,a.color)}</div>
+        <div class="ki"><div class="kil">Add-on attach <span class="kw">(20 pts)</span></div><div class="kiv" style="color:${cMet?'#639922':'#D85A30'}">${a.addOn}%</div><div class="kivs" style="color:${cMet?'#639922':'#D85A30'}">${cMet?'✓ meets':'✗ below'} ≥44%</div>${kpiBar(a.addOn,44,a.color)}</div>
+        <div class="ki"><div class="kil">ACE scorecard <span class="kw">(15 pts)</span></div><div class="kiv" style="color:${dMet===null?'#888780':dMet?'#639922':'#D85A30'}">${a.sc!==null?a.sc.toFixed(1):'—'}</div><div class="kivs" style="color:${dMet===null?'var(--color-text-tertiary)':dMet?'#639922':'#D85A30'}">${dMet===null?'no data':dMet?'✓ meets':'✗ below'} ${dMet!==null?'≥8.0':''} ${a.sc!==null?'· ⚠ pending':''}</div>${a.sc!==null?kpiBar(a.sc,8,a.color):'<div class="kib"></div>'}</div>
+        <div class="ki"><div class="kil">Avg booking ticket <span class="kw">(10 pts)</span></div><div class="kiv" style="color:${eMet?'#639922':'var(--color-text-secondary)'}">$${a.ticket}</div><div class="kivs" style="color:${eMet?'#639922':'#D85A30'}">${eMet?'✓ at/above':'↓ below'} $700</div>${kpiBar(a.ticket,700,a.color)}</div>
+      </div>
+    </div>
+    <div class="dvd"></div>
+    <p class="slbl">Workload context</p>
+    <div class="wlrow">
+      <div class="wlc"><div class="wv">${t.calls??'—'}</div><div class="wl">Calls answered (60d)</div></div>
+      <div class="wlc"><div class="wv">${t.totalHrs??'—'}</div><div class="wl">Total talk time</div></div>
+      <div class="wlc"><div class="wv">${t.wkHrs??'—'}</div><div class="wl">Est. talk/wk</div></div>
+    </div>
+    <div class="wlrow">
+      <div class="wlc"><div class="wv">${a.bookings}</div><div class="wl">Bookings (60d)</div></div>
+      <div class="wlc"><div class="wv">${a.smsOut!==null?'~'+a.smsOut+'/wk':'—'}</div><div class="wl">Outbound SMS est.</div></div>
+      <div class="wlc"><div class="wv" style="color:${ss.tx}">${s!==null?s:'—'}</div><div class="wl">CC Score</div></div>
+    </div>
+    ${fH}<ul style="list-style:none;padding:0;margin-top:.5rem">${nH}</ul>
+  </div>`;
+  pEl.appendChild(p);
+});
+function selAgent(idx){
+  document.querySelectorAll('.abtn').forEach((b,i)=>b.classList.toggle('on',i===idx));
+  document.querySelectorAll('.apnl').forEach((p,i)=>p.classList.toggle('on',i===idx));
+  setTimeout(()=>drawRing('ring-'+idx,ccScore(AGENTS[idx]),AGENTS[idx].color),50);
+}
+let capBuilt=false;
+function buildCap(){
+  if(capBuilt)return;capBuilt=true;
+  new Chart(document.getElementById('capChart'),{type:'bar',data:{labels:['Inbound calls (actual)','Outbound calls (est.)','SMS inbound (est.)','Outbound SMS (est.)','Email (est.)','Spectora (est.)','Airtable','ShowingTime','Sewer send-outs','Other admin'],datasets:[{label:'Hrs/wk',data:[11.7,3.3,13.4,8.7,4.75,9.3,7.0,7.0,5.0,8.0],backgroundColor:['#378ADD','#85B7EB','#1D9E75','#5DCAA5','#EF9F27','#639922','#7F77DD','#D85A30','#0F6E56','#888780'],borderRadius:4,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+ctx.parsed.x.toFixed(1)+' hrs/wk'}}},scales:{x:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{size:11},color:'#888780',callback:v=>v+'h'}},y:{grid:{display:false},ticks:{font:{size:11},color:'#444441',autoSkip:false}}}}});
+}
+function buildLB(){
+  const tb=document.getElementById('lbBody');if(tb.children.length)return;
+  [...AGENTS].sort((a,b)=>(ccScore(b)??0)-(ccScore(a)??0)).forEach(a=>{
+    const s=ccScore(a),sc=gs(a),tr=document.createElement('tr');
+    tr.innerHTML=`<td><div style="display:flex;align-items:center;gap:7px"><div style="width:26px;height:26px;border-radius:50%;background:${a.color}22;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:${a.color}">${a.init}</div><span>${a.name}</span></div></td>
+      <td><span class="spill" style="background:${sc.bg};color:${sc.tx}">${s!==null?s+' · '+sc.lbl:'— · '+sc.lbl}</span></td>
+      <td style="color:${a.answer>=70?'#639922':'#D85A30'}">${a.answer}%</td>
+      <td style="color:${a.streak<=2?'#639922':'#D85A30'}">${a.streak}/wk</td>
+      <td style="color:${a.addOn>=44?'#639922':'#D85A30'}">${a.addOn}%</td>
+      <td style="color:${a.sc===null?'#888780':a.sc>=8?'#639922':'#D85A30'}">${a.sc!==null?a.sc.toFixed(1):'—'}</td>
+      <td>$${a.ticket}</td>`;
+    tb.appendChild(tr);
+  });
+}
+function sw(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
+  const idx=['team','agents','cap','score'].indexOf(name);
+  document.querySelectorAll('.tab')[idx].classList.add('on');
+  document.getElementById('pnl-'+name).classList.add('on');
+  if(name==='agents')setTimeout(()=>drawRing('ring-0',ccScore(AGENTS[0]),AGENTS[0].color),50);
+  if(name==='cap')buildCap();
+  if(name==='score')buildLB();
+}
+setTimeout(()=>drawRing('ring-0',ccScore(AGENTS[0]),AGENTS[0].color),200);
+</script>
