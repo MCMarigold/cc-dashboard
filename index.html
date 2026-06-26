@@ -13,15 +13,14 @@
   --blue:#378ADD;--blue-lt:#E6F1FB;--blue-dk:#0C447C;
   --green:#639922;--green-lt:#EAF3DE;--green-dk:#27500A;
   --red:#D85A30;--red-lt:#FCEBEB;--red-dk:#791F1F;
-  --teal:#1D9E75;--teal-lt:#E1F5EE;
-  --purple:#7F77DD;--purple-lt:#EEEDFE;
+  --teal:#1D9E75;--purple:#7F77DD;
   --r:8px;--r2:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 .wrap{max-width:1100px;margin:0 auto;padding:1.5rem 1.25rem 3rem;}
 header{display:flex;align-items:center;gap:14px;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);}
-.logo{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .hd-title{font-size:18px;font-weight:700;color:var(--text);}
 .hd-sub{font-size:13px;color:var(--text3);margin-top:2px;}
 .hd-right{margin-left:auto;text-align:right;}
@@ -42,11 +41,11 @@ header{display:flex;align-items:center;gap:14px;margin-bottom:1.75rem;padding-bo
 .chcard{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:1rem 1.25rem;}
 .chcard h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:.75rem;}
 .br{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-.bl{font-size:12px;color:var(--text2);width:105px;flex-shrink:0;}
+.bl{font-size:12px;color:var(--text2);width:110px;flex-shrink:0;}
 .bt{flex:1;height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;}
-.bf{height:100%;border-radius:3px;transition:width .3s;}
+.bf{height:100%;border-radius:3px;}
 .bv{font-size:12px;color:var(--text);width:60px;text-align:right;flex-shrink:0;font-weight:600;}
-.ch-note{font-size:11px;color:var(--text3);margin-top:8px;}
+.ch-note{font-size:11px;color:var(--text3);margin-top:8px;line-height:1.5;}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:1.1rem 1.25rem;margin-bottom:1rem;}
 .asel{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;}
 .abtn{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border2);font-size:13px;font-weight:500;cursor:pointer;background:transparent;color:var(--text2);transition:all .15s;}
@@ -130,7 +129,7 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-
       <div class="br"><span class="bl">Megan Kouri</span><div class="bt"><div class="bf" style="width:56%;background:var(--purple)"></div></div><span class="bv">13 · $655</span></div>
       <div class="br"><span class="bl">Alicia Ortloff</span><div class="bt"><div class="bf" style="width:48%;background:var(--red)"></div></div><span class="bv">11 · $719</span></div>
       <div class="br"><span class="bl">Maggie Cox</span><div class="bt"><div class="bf" style="width:17%;background:var(--gold)"></div></div><span class="bv">4 · $629</span></div>
-      <div class="br"><span class="bl">Monique Ocon</span><div class="bt"><div class="bf" style="width:9%;background:var(--teal)"></div></div><span class="bv">2 · $275</span></div>
+      <div class="br"><span class="bl">Monique Ocon</span><div class="bt"><div class="bf" style="width:9%;background:#0F6E56"></div></div><span class="bv">2 · $275</span></div>
       <p class="ch-note">Team add-on attach: 47.1% ✓ above 44% standard · Bookings by best_date (Confirmed At)</p>
     </div>
     <div class="chcard">
@@ -148,7 +147,7 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-
       <div class="br"><span class="bl">Deb Pulskamp</span><div class="bt"><div class="bf" style="width:62%;background:var(--blue)"></div></div><span class="bv">3.85 (59)</span></div>
       <div class="br"><span class="bl">Alicia Ortloff</span><div class="bt"><div class="bf" style="width:46%;background:var(--red)"></div></div><span class="bv">2.85 (41)</span></div>
       <div class="br"><span class="bl">Monique Ocon</span><div class="bt"><div class="bf" style="width:0%;background:#0F6E56"></div></div><span class="bv">0.00 (3)</span></div>
-      <p class="ch-note">⚠ New questions live Jun 7 — team baseline pending (est. early July). Numbers shown for reference only.</p>
+      <p class="ch-note">⚠ New questions live Jun 7 — team baseline pending (est. early July). Numbers shown for reference only. Q7 upsell success weakest across all agents.</p>
     </div>
   </div>
   <div class="card">
@@ -204,7 +203,7 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-
   <div class="card">
     <p class="slbl">Weekly hours by activity</p>
     <div style="position:relative;width:100%;height:300px;">
-      <canvas id="capChart" aria-label="Horizontal bar chart showing weekly hours by activity"></canvas>
+      <canvas id="capChart"></canvas>
     </div>
     <p style="font-size:11px;color:var(--text3);font-style:italic;margin-top:.75rem">Inbound call time is actual from the RingCentral scheduling queue log. All other channels are estimated from volume × avg handle time.</p>
   </div>
@@ -216,15 +215,15 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-
   <div class="card">
     <p class="slbl">How the CC Score is calculated</p>
     <div class="sfm">
-      <strong>CC Score</strong> is a composite metric across five attributable KPIs. Scores are uncapped — exceeding a standard earns proportional bonus points above that component's weight. <strong>100 = every standard met simultaneously.</strong><br><br>
-      <strong>35 pts</strong> — Call answer rate · standard ≥70% · formula: (actual ÷ 70) × 35<br>
-      <strong>20 pts</strong> — Miss streak rate · standard ≤2/wk · formula: min((2 ÷ actual) × 20, 20); full 20 pts at 0 streaks<br>
-      <strong>20 pts</strong> — Add-on attach rate · standard ≥44% · formula: (actual ÷ 44) × 20<br>
-      <strong>15 pts</strong> — ACE scorecard · standard ≥8.0 · formula: (actual ÷ 8.0) × 15<br>
-      <strong>10 pts</strong> — Avg booking ticket · baseline $700 · formula: (actual ÷ 700) × 10<br><br>
-      <strong>Tiers:</strong> Exceptional = score ≥100 AND ≤1 component below standard · Strong = score 90–99 AND fewer than 3 below · Monitor = score 80–89 OR 3+ below standard · Needs Attention = score below 80
+      <strong>CC Score</strong> is a composite metric across five attributable KPIs. Scores are uncapped — exceeding a standard earns proportional bonus points. <strong>100 = every standard met simultaneously.</strong><br><br>
+      <strong>35 pts</strong> — Call answer rate · standard ≥70% · (actual ÷ 70) × 35<br>
+      <strong>20 pts</strong> — Miss streak rate · standard ≤2/wk · min((2 ÷ actual) × 20, 20); full 20 pts at 0 streaks<br>
+      <strong>20 pts</strong> — Add-on attach rate · standard ≥44% · (actual ÷ 44) × 20<br>
+      <strong>15 pts</strong> — ACE scorecard · standard ≥8.0 · (actual ÷ 8.0) × 15<br>
+      <strong>10 pts</strong> — Avg booking ticket · baseline $700 · (actual ÷ 700) × 10<br><br>
+      <strong>Tiers:</strong> Exceptional = score ≥100 AND ≤1 component below standard · Strong = score 90–99 AND fewer than 3 below · Monitor = score 80–89 OR 3+ below · Needs Attention = score below 80
     </div>
-    <div class="ace-note">⚠ ACE scorecard baselines are pending recalibration on the new question set (live June 7, 2026). Current scores are shown as-is for reference — do not compare to the prior 8.2 team baseline until the new baseline is established (est. early July 2026).</div>
+    <div class="ace-note">⚠ ACE scorecard baselines are pending recalibration on the new question set (live June 7, 2026). Scores are shown as-is — do not compare to the prior 8.2 team baseline until the new baseline is set (est. early July 2026).</div>
     <p class="slbl">Team leaderboard — week of Jun 15–22</p>
     <table class="ttbl">
       <thead><tr><th>Agent</th><th>CC Score</th><th>Answer rate</th><th>Streaks/wk</th><th>Add-on</th><th>Scorecard ⚠</th><th>Avg ticket</th></tr></thead>
@@ -235,82 +234,73 @@ footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-
 
 <footer>
   Marigold Home Inspections · Client Care Dashboard · Week of Jun 15–22, 2026<br>
-  Calls: RingCentral scheduling queue log, ghost-cleaned (dur=0 misses removed). Bookings: Spectora export, best_date attribution (Confirmed At → Schedule Date fallback), format='mixed' parsing. Talk time: actual from queue log answered legs. ACE scorecard: RingCentral ACE export, new questions active Jun 7 2026. Email: shared inbox, no per-agent attribution available. SMS: baseline figures from Beetexting/RingCentral — weekly SMS log not uploaded this period.
+  Calls: RingCentral scheduling queue log, ghost-cleaned (dur=0 misses removed). Bookings: Spectora export, best_date attribution, format='mixed' parsing. Talk time: actual from queue log answered legs, Jun 15–22 only. ACE scorecard: RingCentral ACE export, new questions active Jun 7 2026. Email: shared inbox, no per-agent attribution. SMS: baseline figures — weekly SMS log not uploaded this period.
 </footer>
-
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-// ═══════════════════════════════════
-// DATA BLOCK — week of Jun 15–22, 2026
-// ═══════════════════════════════════
 const DATA = {
   weekLabel: 'Jun 15–22, 2026',
-  answerRate:   { cur: 75.7,  prev: 70.6  },
-  inboundCalls: { cur: 346,   prev: 273   },
-  vmRate:       { cur: 9.8,   prev: null  },
-  emailResp:    { cur: 11,    prev: null  },
-  avgTicket:    { cur: 685,   prev: 668   },
-  addOnRate:    { cur: 47.1,  prev: 43.9  },
-  talkHrsWk:    15.5,
-  teamAvgMin:   3.7,
-  smsInbound:   500,
-  emailVol:     57,
-  email15pct:   53.2,
-  email1hPct:   89.9,
-  specManual:   68,
-  specTicket:   '$685',
+  answerRate:   { cur:75.7,  prev:70.6 },
+  inboundCalls: { cur:346,   prev:273  },
+  vmRate:       { cur:9.8,   prev:null },
+  avgTicket:    { cur:685,   prev:668  },
+  addOnRate:    { cur:47.1,  prev:43.9 },
+  talkHrsWk: 15.5,
+  teamAvgMin: 3.7,
   talkPeriodLabel: 'Jun 15–22, 2026 · actual from queue log',
 
   agentTalk: [
-    { name:'Deb Pulskamp',   calls:69,  totalHrs:'5.13 hrs', avgMin:'4.5 min', wkHrs:'5.13 hrs' },
-    { name:'Sara Bonk',      calls:68,  totalHrs:'4.59 hrs', avgMin:'4.0 min', wkHrs:'4.59 hrs' },
-    { name:'Alicia Ortloff', calls:60,  totalHrs:'3.21 hrs', avgMin:'3.2 min', wkHrs:'3.21 hrs' },
-    { name:'Megan Kouri',    calls:45,  totalHrs:'2.15 hrs', avgMin:'2.9 min', wkHrs:'2.15 hrs' },
-    { name:'Maggie Cox',     calls:3,   totalHrs:'0.26 hrs', avgMin:'5.3 min', wkHrs:'0.26 hrs' },
-    { name:'Monique Ocon',   calls:3,   totalHrs:'0.14 hrs', avgMin:'2.9 min', wkHrs:'0.14 hrs' },
+    { name:'Deb Pulskamp',   calls:69, totalHrs:'5.13 hrs', avgMin:'4.5 min' },
+    { name:'Sara Bonk',      calls:68, totalHrs:'4.59 hrs', avgMin:'4.0 min' },
+    { name:'Alicia Ortloff', calls:60, totalHrs:'3.21 hrs', avgMin:'3.2 min' },
+    { name:'Megan Kouri',    calls:45, totalHrs:'2.15 hrs', avgMin:'2.9 min' },
+    { name:'Maggie Cox',     calls:3,  totalHrs:'0.26 hrs', avgMin:'5.3 min' },
+    { name:'Monique Ocon',   calls:3,  totalHrs:'0.14 hrs', avgMin:'2.9 min' },
   ],
 
   agents: [
     { name:'Deb Pulskamp',   init:'DP', color:'#378ADD',
       type:'Full-time', sched:'Mon–Fri 9am–5pm',
       answer:89.6, streak:0, addOn:60.0, sc:3.85, ticket:796, bookings:15, smsOut:74,
+      smallSample:false,
       flags:['⚠ ACE scorecard 3.85 — Q7 (successful upsell) weakest at 20% pass rate.'],
       notes:['Highest answer rate this week at 89.6% — up from 73.7% prior week.','Add-on attach 60.0% — well above the 44% standard.','Avg ticket $796 is highest on the team this week.'] },
     { name:'Sara Bonk',      init:'SB', color:'#1D9E75',
       type:'Full-time', sched:'Mon/Fri 10am–8pm, Sat–Sun 9am–7pm',
       answer:86.1, streak:0, addOn:56.5, sc:4.24, ticket:654, bookings:23, smsOut:112,
+      smallSample:false,
       flags:[],
       notes:['Most bookings on the team this week (23).','Add-on attach 56.5% — second highest on the team.','Highest outbound SMS (~112/wk). Weekend coverage anchor.'] },
     { name:'Maggie Cox',     init:'MC', color:'#D39715',
       type:'Manager', sched:'Mon–Fri 7am–3pm',
       answer:100, streak:0, addOn:25.0, sc:4.47, ticket:629, bookings:4, smsOut:13,
+      smallSample:false,
       flags:['ℹ Only 3 calls routed this week — small sample, interpret with caution.','ℹ Only 4 bookings attributed — add-on rate not meaningful at this volume.'],
-      notes:['Answer rate 100% on 3 calls — sample too small to be representative.','Low booking count reflects manager role and recurring meeting load.','Outbound SMS ~13/wk manual (automated review request texts excluded from count).'] },
+      notes:['Answer rate 100% on 3 calls — sample too small to be representative.','Low booking count reflects manager role and recurring meeting load.','Outbound SMS ~13/wk manual (automated review request texts excluded).'] },
     { name:'Alicia Ortloff', init:'AO', color:'#D85A30',
       type:'Full-time', sched:'Sun–Thu 12pm–8pm',
       answer:57.1, streak:2, addOn:27.3, sc:2.85, ticket:719, bookings:11, smsOut:61,
+      smallSample:false,
       flags:['⚠ Answer rate 57.1% — 12.9 pts below the ≥70% standard. Primary miss driver this week.','⚠ Add-on attach 27.3% — 16.7 pts below standard. Q6 upsell attempt at 15% pass rate.','⚠ ACE 2.85 — Q9 (cancellation policy) at 5% pass rate. Standard: state 24-hr window AND $150 fee.','⚠ Miss streaks: 2 this week — at the ≤2/wk boundary.'],
-      notes:['105 calls routed this week — highest on the team. 45 missed.','Avg ticket $719 is above her $665 baseline and above the $700 team standard.','Covers 3–8pm window solo — primary team coverage risk.'] },
+      notes:['105 calls routed this week — highest on the team. 45 missed.','Avg ticket $719 above her $665 baseline and above the $700 team standard.','Covers 3–8pm window solo — primary team coverage risk.'] },
     { name:'Megan Kouri',    init:'MK', color:'#7F77DD',
       type:'Part-time', sched:'Mon–Fri 8–11am',
       answer:76.3, streak:1, addOn:46.2, sc:6.20, ticket:655, bookings:13, smsOut:37,
-      flags:['ℹ Answer rate dropped from 93.9% → 76.3% vs. prior week — worth a quick check on miss pattern.'],
+      smallSample:true,
+      flags:['ℹ Score calculated on a smaller sample this week: 59 calls routed, 13 bookings, 18 scored calls. Interpret with that context.','ℹ Answer rate dropped from 93.9% → 76.3% vs. prior week — worth a quick check on miss pattern.'],
       notes:['Add-on attach 46.2% — above the 44% standard.','Highest ACE score on the team this week at 6.20.','1 miss streak of 4+ this week — below the concern threshold but noted.'] },
     { name:'Monique Ocon',   init:'MO', color:'#0F6E56',
       type:'Full-time (overnight)', sched:'Sun–Thu 7pm–3am',
       answer:100, streak:0, addOn:0.0, sc:0.0, ticket:275, bookings:2, smsOut:null,
+      smallSample:false,
       flags:['ℹ Overnight service mix: ticket, add-on, and scorecard are not directly comparable to daytime agents.','ℹ ACE score 0.00 from only 3 scored calls — not meaningful at this sample size.'],
       notes:['Near-perfect answer rate — overnight calls are low volume, high intent.','Handles ~32% of all inbound SMS (~171/wk). Text is her primary channel after 8pm.','Lower ticket and scorecard reflect overnight service mix, not a performance gap.'] },
   ],
 };
 
-// ═══════════════════════════════════
-// CC SCORE ENGINE
-// ═══════════════════════════════════
 function ccScore(a) {
-  if (a.name === 'Megan Kouri') return null;
   const ap = (a.answer / 70) * 35;
   const bp = Math.min(a.streak === 0 ? 20 : (2.0 / a.streak) * 20, 20);
   const cp = a.sc != null ? (a.sc / 8.0) * 15 : 0;
@@ -328,9 +318,7 @@ function failing(a) {
   return f;
 }
 function gs(a) {
-  const s = ccScore(a);
-  if (s === null) return { bg:'#F1EFE8', tx:'#444441', lbl:'Insufficient data' };
-  const f = failing(a);
+  const s = ccScore(a), f = failing(a);
   if (s < 80)             return { bg:'#FAECE7', tx:'#712B13', lbl:'Needs Attention' };
   if (s >= 100 && f <= 1) return { bg:'#D4EDBB', tx:'#1A4206', lbl:'Exceptional' };
   if (s >= 90 && f < 3)   return { bg:'#EAF3DE', tx:'#27500A', lbl:'Strong' };
@@ -342,24 +330,20 @@ function wow(cur, prev, hb, sfx='') {
   if (Math.abs(d) < 0.05) return '<span style="color:#8C7A5A;font-size:11px">→ no change</span>';
   const up = d > 0, good = up === hb;
   const col = good ? '#27500A' : '#791F1F';
-  const bold = Math.abs(d / prev) > 0.1 ? 'font-weight:700;' : '';
+  const bold = Math.abs(d/prev) > 0.1 ? 'font-weight:700;' : '';
   return `<span style="color:${col};font-size:11px;${bold}">${up?'↑':'↓'} ${Math.abs(d).toFixed(1)}${sfx} vs. last week</span>`;
 }
 
-// ═══════════════════════════════════
-// BUILD TEAM KPIs
-// ═══════════════════════════════════
+// Team KPIs
 document.getElementById('teamKpis').innerHTML = [
-  { lbl:'Live answer rate',   val: DATA.answerRate.cur+'%',  sub: wow(DATA.answerRate.cur,   DATA.answerRate.prev,   true,  ' pts') },
-  { lbl:'Inbound calls/wk',  val: DATA.inboundCalls.cur,    sub: wow(DATA.inboundCalls.cur, DATA.inboundCalls.prev, true,  '') },
-  { lbl:'Voicemail rate',     val: DATA.vmRate.cur+'%',      sub: '<span style="color:#8C7A5A;font-size:11px">vs. 12.5% baseline ↓</span>' },
-  { lbl:'Avg booking ticket', val: '$'+DATA.avgTicket.cur,   sub: wow(DATA.avgTicket.cur,    DATA.avgTicket.prev,    true,  '') },
-  { lbl:'Add-on attach',      val: DATA.addOnRate.cur+'%',   sub: wow(DATA.addOnRate.cur,    DATA.addOnRate.prev,    true,  ' pts') },
+  { lbl:'Live answer rate',   val:DATA.answerRate.cur+'%',  sub:wow(DATA.answerRate.cur,DATA.answerRate.prev,true,' pts') },
+  { lbl:'Inbound calls/wk',  val:DATA.inboundCalls.cur,    sub:wow(DATA.inboundCalls.cur,DATA.inboundCalls.prev,true,'') },
+  { lbl:'Voicemail rate',     val:DATA.vmRate.cur+'%',      sub:'<span style="color:#27500A;font-size:11px">↓ vs. 12.5% baseline</span>' },
+  { lbl:'Avg booking ticket', val:'$'+DATA.avgTicket.cur,   sub:wow(DATA.avgTicket.cur,DATA.avgTicket.prev,true,'') },
+  { lbl:'Add-on attach',      val:DATA.addOnRate.cur+'%',   sub:wow(DATA.addOnRate.cur,DATA.addOnRate.prev,true,' pts') },
 ].map(c=>`<div class="kpi"><div class="k-lbl">${c.lbl}</div><div class="k-val">${c.val}</div><div class="k-sub">${c.sub}</div></div>`).join('');
 
-// ═══════════════════════════════════
-// BUILD CALL BARS
-// ═══════════════════════════════════
+// Call bars
 document.getElementById('callBars').innerHTML=`
   <div class="br"><span class="bl">Total/wk</span><div class="bt"><div class="bf" style="width:100%;background:#85B7EB"></div></div><span class="bv">${DATA.inboundCalls.cur}</span></div>
   <div class="br"><span class="bl">Answered</span><div class="bt"><div class="bf" style="width:${DATA.answerRate.cur}%;background:var(--blue)"></div></div><span class="bv">${DATA.answerRate.cur}%</span></div>
@@ -367,23 +351,19 @@ document.getElementById('callBars').innerHTML=`
   <div class="br"><span class="bl">Talk time/wk</span><div class="bt"><div class="bf" style="width:100%;background:#B5D4F4"></div></div><span class="bv">${DATA.talkHrsWk} hrs</span></div>
   <p class="ch-note">Peak: Mon · Alicia 57.1% answer rate is primary miss driver · Avg: ${DATA.teamAvgMin} min/call</p>`;
 
-// ═══════════════════════════════════
-// BUILD TALK TIME TABLE
-// ═══════════════════════════════════
+// Talk time table
 const tb = document.getElementById('talkBody');
-let tc = 0, th = 0;
+let tc = 0;
 DATA.agentTalk.forEach(t => {
   tc += t.calls;
-  const a = DATA.agents.find(x => x.name === t.name);
+  const a = DATA.agents.find(x=>x.name===t.name);
   const dot = a ? `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${a.color};margin-right:7px;vertical-align:middle"></span>` : '';
   tb.innerHTML += `<tr><td>${dot}${t.name}</td><td>${t.calls}</td><td>${t.totalHrs}</td><td>${t.avgMin}</td></tr>`;
 });
 tb.innerHTML += `<tr class="total"><td>Team total</td><td>${tc}</td><td>15.5 hrs</td><td>${DATA.teamAvgMin} min avg</td></tr>`;
 document.getElementById('talkPeriod').textContent = 'Source: RingCentral scheduling queue log · ' + DATA.talkPeriodLabel;
 
-// ═══════════════════════════════════
-// BUILD AGENT PANELS
-// ═══════════════════════════════════
+// Agent panels
 function kBar(v, std, color) {
   return `<div class="kibar"><div class="kibar-fill" style="width:${Math.min(v/std*100,100).toFixed(1)}%;background:${color}"></div></div>`;
 }
@@ -391,21 +371,21 @@ const bEl = document.getElementById('agentBtns');
 const pEl = document.getElementById('agentPanels');
 DATA.agents.forEach((a, i) => {
   const btn = document.createElement('button');
-  btn.className = 'abtn' + (i===0?' on':'');
+  btn.className = 'abtn'+(i===0?' on':'');
   btn.textContent = a.name.split(' ')[0];
   btn.onclick = () => selA(i);
   bEl.appendChild(btn);
 
   const s = ccScore(a), sc = gs(a);
-  const aM=a.answer>=70, bM=a.streak<=2, cM=a.addOn>=44;
-  const dM=a.sc!==null?a.sc>=8.0:null, eM=a.ticket>=700;
+  const aM=a.answer>=70, bM=a.streak<=2, cM=a.addOn>=44, dM=a.sc!=null?a.sc>=8.0:null, eM=a.ticket>=700;
   const tk = DATA.agentTalk.find(t=>t.name===a.name)||{};
   const fH = a.flags.map(f=>`<div class="${f.startsWith('⚠')?'fb':'nb'}">${f}</div>`).join('');
   const nH = a.notes.map(n=>`<li style="font-size:12px;color:var(--text2);margin-bottom:4px;padding-left:10px;border-left:2px solid var(--border2);list-style:none">${n}</li>`).join('');
+  const sampleNote = a.smallSample ? `<p style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px;line-height:1.4">Score calculated —<br>lower sample size</p>` : '';
 
   const p = document.createElement('div');
-  p.className = 'apnl' + (i===0?' on':''); p.id = 'ap-'+i;
-  p.innerHTML = `<div class="card">
+  p.className='apnl'+(i===0?' on':''); p.id='ap-'+i;
+  p.innerHTML=`<div class="card">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
       <div style="width:44px;height:44px;border-radius:50%;background:${a.color}20;border:2px solid ${a.color}44;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:${a.color}">${a.init}</div>
       <div>
@@ -422,7 +402,7 @@ DATA.agents.forEach((a, i) => {
         <span class="ring-lbl">CC Score</span>
         <canvas id="ring-${i}" width="140" height="140"></canvas>
         <span class="ring-grade" style="background:${sc.bg};color:${sc.tx}">${sc.lbl}</span>
-        ${a.name==='Megan Kouri'?'<span style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px">Sample too small<br>for reliable scoring</span>':''}
+        ${sampleNote}
       </div>
       <div class="kpi-4">
         <div class="ki">
@@ -445,9 +425,9 @@ DATA.agents.forEach((a, i) => {
         </div>
         <div class="ki">
           <div class="kil">ACE scorecard <span class="kw">(15 pts)</span></div>
-          <div class="kiv" style="color:${dM===null?'#888780':dM?'#2F6B0E':'#993C1D'}">${a.sc!==null?a.sc.toFixed(2):'—'}</div>
+          <div class="kiv" style="color:${dM===null?'#888780':dM?'#2F6B0E':'#993C1D'}">${a.sc!=null?a.sc.toFixed(2):'—'}</div>
           <div class="kivs" style="color:var(--text3)">⚠ baseline pending recalibration</div>
-          ${a.sc!==null?kBar(a.sc,8.0,a.color):'<div class="kibar"></div>'}
+          ${a.sc!=null?kBar(a.sc,8.0,a.color):'<div class="kibar"></div>'}
         </div>
         <div class="ki" style="grid-column:span 2">
           <div class="kil">Avg booking ticket <span class="kw">(10 pts)</span></div>
@@ -466,8 +446,8 @@ DATA.agents.forEach((a, i) => {
     </div>
     <div class="wl-row">
       <div class="wlc"><div class="wv">${a.bookings}</div><div class="wl">Bookings (best_date)</div></div>
-      <div class="wlc"><div class="wv">${a.name==='Monique Ocon'?'~171/wk':a.smsOut!==null?'~'+a.smsOut+'/wk':'—'}</div><div class="wl">${a.name==='Monique Ocon'?'SMS in (overnight)':'Outbound SMS est.'}</div></div>
-      <div class="wlc"><div class="wv">${a.name==='Monique Ocon'?'32%':'—'}</div><div class="wl">${a.name==='Monique Ocon'?'Share of team inbound SMS':'—'}</div></div>
+      <div class="wlc"><div class="wv">${a.name==='Monique Ocon'?'~171/wk':a.smsOut!=null?'~'+a.smsOut+'/wk':'—'}</div><div class="wl">${a.name==='Monique Ocon'?'SMS in (overnight)':'Outbound SMS est.'}</div></div>
+      <div class="wlc"><div class="wv">${a.name==='Monique Ocon'?'32%':'—'}</div><div class="wl">${a.name==='Monique Ocon'?'Share of team SMS':'—'}</div></div>
     </div>
     ${fH}
     <ul style="padding:0;margin-top:.5rem">${nH}</ul>
@@ -481,37 +461,31 @@ function selA(idx) {
   setTimeout(()=>drawRing('ring-'+idx,ccScore(DATA.agents[idx]),DATA.agents[idx].color),50);
 }
 
-// ═══════════════════════════════════
-// RING CANVAS
-// ═══════════════════════════════════
 function drawRing(id, score, color) {
-  const c = document.getElementById(id); if (!c) return;
-  const ctx=c.getContext('2d'), w=c.width, h=c.height, cx=w/2, cy=h/2, r=Math.min(w,h)/2-9;
+  const c=document.getElementById(id); if(!c)return;
+  const ctx=c.getContext('2d'),w=c.width,h=c.height,cx=w/2,cy=h/2,r=Math.min(w,h)/2-9;
   ctx.clearRect(0,0,w,h);
-  const dark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+  const dark=window.matchMedia('(prefers-color-scheme:dark)').matches;
   ctx.lineWidth=10; ctx.lineCap='round';
-  ctx.strokeStyle = dark?'rgba(255,255,255,.1)':'#E2D5B8';
+  ctx.strokeStyle=dark?'rgba(255,255,255,.1)':'#E2D5B8';
   ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,Math.PI*1.5); ctx.stroke();
-  if (score !== null) {
-    ctx.strokeStyle = color;
-    const pct = Math.min(score/100,1);
+  if(score!==null){
+    ctx.strokeStyle=color;
+    const pct=Math.min(score/100,1);
     ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+pct*Math.PI*2); ctx.stroke();
   }
-  ctx.fillStyle = dark?'#F0EEE8':'#2C2118';
+  ctx.fillStyle=dark?'#F0EEE8':'#2C2118';
   ctx.font='700 22px system-ui,sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
-  ctx.fillText(score!==null?score:'—', cx, cy-5);
+  ctx.fillText(score!=null?score:'—',cx,cy-5);
   ctx.font='400 10px system-ui,sans-serif';
-  ctx.fillStyle = dark?'rgba(255,255,255,.45)':'#8C7A5A';
-  ctx.fillText(score!==null&&score>100?'exceptional':'/100', cx, cy+13);
+  ctx.fillStyle=dark?'rgba(255,255,255,.45)':'#8C7A5A';
+  ctx.fillText(score!=null&&score>100?'exceptional':'/100',cx,cy+13);
 }
 
-// ═══════════════════════════════════
-// CAPACITY CHART
-// ═══════════════════════════════════
-let capBuilt = false;
-function buildCap() {
-  if (capBuilt) return; capBuilt=true;
-  new Chart(document.getElementById('capChart'), {
+let capBuilt=false;
+function buildCap(){
+  if(capBuilt)return; capBuilt=true;
+  new Chart(document.getElementById('capChart'),{
     type:'bar',
     data:{
       labels:['Inbound calls (actual)','Outbound calls (est.)','SMS inbound (est.)','Outbound SMS (est.)','Email (est.)','Spectora (est.)','Airtable tracking','ShowingTime','Sewer send-outs','Other admin'],
@@ -530,32 +504,27 @@ function buildCap() {
   });
 }
 
-// ═══════════════════════════════════
-// CC SCORE LEADERBOARD
-// ═══════════════════════════════════
-function buildLB() {
+function buildLB(){
   const tb=document.getElementById('lbBody'); if(tb.children.length)return;
-  [...DATA.agents].sort((a,b)=>(ccScore(b)??0)-(ccScore(a)??0)).forEach(a=>{
-    const s=ccScore(a), sc=gs(a), tr=document.createElement('tr');
+  [...DATA.agents].sort((a,b)=>ccScore(b)-ccScore(a)).forEach(a=>{
+    const s=ccScore(a),sc=gs(a),tr=document.createElement('tr');
+    const sampleFlag = a.smallSample ? ' <span style="font-size:10px;color:#8C7A5A;font-weight:400">(small sample)</span>' : '';
     tr.innerHTML=`
       <td><div style="display:flex;align-items:center;gap:8px">
         <div style="width:28px;height:28px;border-radius:50%;background:${a.color}20;border:1px solid ${a.color}60;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:${a.color}">${a.init}</div>
-        ${a.name}
+        ${a.name}${sampleFlag}
       </div></td>
-      <td><span class="spill" style="background:${sc.bg};color:${sc.tx}">${s!==null?s+' · '+sc.lbl:'— · '+sc.lbl}</span></td>
+      <td><span class="spill" style="background:${sc.bg};color:${sc.tx}">${s} · ${sc.lbl}</span></td>
       <td style="color:${a.answer>=70?'#27500A':'#791F1F'};font-weight:600">${a.answer}%</td>
       <td style="color:${a.streak<=2?'#27500A':'#791F1F'};font-weight:600">${a.streak}/wk</td>
       <td style="color:${a.addOn>=44?'#27500A':'#791F1F'};font-weight:600">${a.addOn}%</td>
-      <td style="color:var(--text3);font-weight:600">${a.sc!==null?a.sc.toFixed(2):'—'}</td>
+      <td style="color:var(--text3);font-weight:600">${a.sc!=null?a.sc.toFixed(2):'—'}</td>
       <td style="color:${a.ticket>=700?'#27500A':'#791F1F'};font-weight:500">$${a.ticket}</td>`;
     tb.appendChild(tr);
   });
 }
 
-// ═══════════════════════════════════
-// TAB SWITCHING
-// ═══════════════════════════════════
-function sw(name) {
+function sw(name){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
   document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
   const idx=['team','agents','cap','score'].indexOf(name);
@@ -566,7 +535,6 @@ function sw(name) {
   if(name==='score') buildLB();
 }
 
-// Init first agent ring
 buildLB();
 setTimeout(()=>drawRing('ring-0',ccScore(DATA.agents[0]),DATA.agents[0].color),300);
 </script>
